@@ -11,19 +11,23 @@ public class Word {
     private String mMiwokTranslation;
     /** Image resource ID of the word*/
     private int mImageResourceId = NO_IMAGE_PROVIDED;
+    /** Sound resource ID of the word*/
+    private int mSoundResourceId;
 
     private static final int NO_IMAGE_PROVIDED = -1;
 
-    /** Constructor with 2 strings*/
-    public Word(String defaultTranslation, String miwokTranslation) {
+    /** Constructor with 2 strings and 1 integer*/
+    public Word(String defaultTranslation, String miwokTranslation, int soundResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mSoundResourceId = soundResourceId;
     }
-    /** Constructor with 2 strings and 1 integer*/
-    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+    /** Constructor with 2 strings and 2 integer*/
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId, int soundResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = imageResourceId;
+        mSoundResourceId = soundResourceId;
     }
     /** Get default translation of the word*/
     public String getDefaultTranslation() {
@@ -37,11 +41,28 @@ public class Word {
     public int getImageResourceId() {
         return mImageResourceId;
     }
+    /** Get sound resource ID of the word*/
+    public int getSoundResourceId() {
+        return mSoundResourceId;
+    }
 
     /**
      * Returns whether or not there is an image for this word.
      */
     public boolean hasImage() {
         return mImageResourceId != NO_IMAGE_PROVIDED;
+    }
+
+    /**
+     * Returns the string representation of the {@link Word} object.
+     */
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                ", mMiwokTranslation='" + mMiwokTranslation + '\'' +
+                ", mImageResourceId=" + mImageResourceId +
+                ", mSoundResourceId=" + mSoundResourceId +
+                '}';
     }
 }
